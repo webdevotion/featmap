@@ -3,8 +3,10 @@ WORKDIR /src
 RUN apk add --update npm git
 RUN go get -u github.com/jteeuwen/go-bindata/...
 COPY ./webapp/package.json webapp/package.json
+# --legacy-peer-deps because of error during npm install
+# https://github.com/supasate/connected-react-router/issues/429#issuecomment-691620790
 RUN cd ./webapp && \
-    npm install
+    npm install --legacy-peer-deps
 COPY . .
 RUN cd ./webapp && \
     npm run build
