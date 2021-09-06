@@ -53,6 +53,8 @@ _testmain.go
 /conf.json
 /.env
 /webapp/build
+/webapp/node_modules
+/webapp/.node-version
 /bin
 /data
 
